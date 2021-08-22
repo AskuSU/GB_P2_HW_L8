@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <cstdint>
 #include <stdexcept>
 #include <string>
@@ -22,24 +22,24 @@ class OffTheField : public std::exception
 public:	
 	OffTheField(Pos pos, Direction dir)
 	{
-		error = "Текущая позиция робота (";
+		error = "РўРµРєСѓС‰Р°СЏ РїРѕР·РёС†РёСЏ СЂРѕР±РѕС‚Р° (";
 		error += std::to_string(pos.x);
 		error += ",";
 		error += std::to_string(pos.y);
-		error += ") направление движения: ";
+		error += ") РЅР°РїСЂР°РІР»РµРЅРёРµ РґРІРёР¶РµРЅРёСЏ: ";
 		switch (dir)
 		{
 		case Direction::RIGHT:
-			error += "вправо";
+			error += "РІРїСЂР°РІРѕ";
 			break;
 		case Direction::LEFT:
-			error += "влево";
+			error += "РІР»РµРІРѕ";
 			break;
 		case Direction::DOWN:
-			error += "вниз";
+			error += "РІРЅРёР·";
 			break;
 		case Direction::UP:
-			error += "вверх";
+			error += "РІРІРµСЂС…";
 			break;
 		default:
 			break;
