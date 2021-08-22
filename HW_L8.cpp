@@ -5,7 +5,7 @@
 #include"MyLib.h"
 #include"Task1.h"
 #include"Task2.h"
-//#include"Task3.h"
+#include"Task3.h"
 
 using namespace std;
 using namespace myLib;
@@ -58,7 +58,7 @@ void Task2()
 	}
 	catch (const Ex& ex)
 	{
-		cerr << "Возникла ошибка: Ex с параметром ("<< ex.what() <<")" << endl;
+		cerr << "Возникла ошибка: Ex с параметром (" << ex.what() << ")" << endl;
 	}
 	catch (...)
 	{
@@ -68,7 +68,58 @@ void Task2()
 
 void Task3()
 {
+	system("cls");
+	Robot rb;
+	char c;
+	do
+	{
+		cout << "Работа с классом Робот:" << endl << endl;
+		rb.print();
+		cout << endl << "Для перемещения используйте WASD, для выхода Q" << endl;
+		c = getUserInputKey();		
+		system("cls");
+		try
+		{
+			switch (c)
+			{
+			case 'd':
+			case 'D':
+				rb.move(Direction::RIGHT);
+				break;
+			case 'a':
+			case 'A':
+				rb.move(Direction::LEFT);
+				break;
+			case 'w':
+			case 'W':
+				rb.move(Direction::UP);
+				break;
+			case 's':
+			case 'S':
+				rb.move(Direction::DOWN);
+				break;
+			case 'q':
+			case 'Q':
+				break;
+			default:
+				rb.move(Direction::other);
+			}
+		}
+		catch (const OffTheField& ex)
+		{
+			cerr << "Попытка выхода за пределы поля! " << ex.what() << endl;
+		}
+		catch (const IllegalCommand& ex)
+		{
+			cerr << "Указано неизвестное направление!" << endl;
+		}
+		catch (...)
+		{
+			cerr << "Неизвестная ошибка!" << endl;
+		}
+	} while (c != 'q' && c != 'Q');
 	
+
 }
 
 

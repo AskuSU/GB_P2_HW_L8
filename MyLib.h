@@ -11,6 +11,7 @@ namespace myLib
 	template <typename T>
 	T getUserInput(bool allowZero = false, bool allowNegative = false, bool checkAllinput = false);
 	std::string getUserInputTxt();
+	char getUserInputKey();
 	unsigned short getUserSelectedTask(unsigned short qtyTask);
 
 	template <typename T>
