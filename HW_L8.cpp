@@ -4,7 +4,7 @@
 #include<ctime>
 #include"MyLib.h"
 #include"Task1.h"
-//#include"Task2.h"
+#include"Task2.h"
 //#include"Task3.h"
 
 using namespace std;
@@ -31,16 +31,39 @@ void Task1()
 		result = div<double_t>(aa, bb);
 		cout << aa << " / " << bb << " = " << result << endl;
 	}
-	catch (std::exception &exception)
+	catch (const std::exception &exception)
 	{
 		cerr << "Возникла ошибка: " << exception.what() << endl;
+	}
+	catch (...)
+	{
+		cerr << "Возникла не известная ошибка!" << endl;
 	}
 }
 
 void Task2()
 {
-	cout << "Поиск максимальной даты:" << endl << endl;
-	
+	cout << "Работа с классом Bar:" << endl << endl;
+	Bar bar;
+	double_t n;
+	try
+	{
+		do
+		{
+			cout << "Введите n = ";
+			n = getUserInput<double_t>(true, true);
+			bar.set(n);
+			cout << endl;
+		} while (n != 0);		
+	}
+	catch (const Ex& ex)
+	{
+		cerr << "Возникла ошибка: Ex с параметром ("<< ex.what() <<")" << endl;
+	}
+	catch (...)
+	{
+		cerr << "Возникла не известная ошибка!" << endl;
+	}
 }
 
 void Task3()
