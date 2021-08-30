@@ -23,6 +23,15 @@ namespace myLib
 		}
 	}
 
+	char getUserInputKey()
+	{
+		char c;
+		cin.get(c);
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		return c;
+	}
+
 	unsigned short getUserSelectedTask(unsigned short qtyTask)
 	{
 		unsigned short taskNumber = 0;
